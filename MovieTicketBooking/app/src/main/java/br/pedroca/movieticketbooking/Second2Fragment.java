@@ -8,12 +8,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
-
 import br.pedroca.movieticketbooking.databinding.FragmentSecond2Binding;
 
 public class Second2Fragment extends Fragment {
 
-    private FragmentSecond2Binding binding;
+private FragmentSecond2Binding binding;
 
     @Override
     public View onCreateView(
@@ -21,8 +20,8 @@ public class Second2Fragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentSecond2Binding.inflate(inflater, container, false);
-        return binding.getRoot();
+      binding = FragmentSecond2Binding.inflate(inflater, container, false);
+      return binding.getRoot();
 
     }
 
@@ -38,7 +37,7 @@ public class Second2Fragment extends Fragment {
         });
     }
 
-    @Override
+@Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;

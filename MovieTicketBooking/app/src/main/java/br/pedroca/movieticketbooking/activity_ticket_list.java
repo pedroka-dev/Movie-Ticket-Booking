@@ -1,51 +1,43 @@
 package br.pedroca.movieticketbooking;
 
+import android.app.Activity;
 import android.os.Bundle;
-
 import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
+import android.widget.Button;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import br.pedroca.movieticketbooking.databinding.ActivityTicketListBinding;
 
-import br.pedroca.movieticketbooking.databinding.ActivityTicketList2Binding;
-
-public class activity_ticket_list extends AppCompatActivity {
+public class activity_ticket_list extends Activity {
 
     private AppBarConfiguration appBarConfiguration;
-    private ActivityTicketList2Binding binding;
+private ActivityTicketListBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityTicketList2Binding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+     binding = ActivityTicketListBinding.inflate(getLayoutInflater());
+     setContentView(R.layout.activity_ticket_list);
 
-        setSupportActionBar(binding.toolbar);
+        //Button test = findViewById(R.id.)
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_activity_ticket_list);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        setSupportActionBar(binding.toolbar);
+//
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_activity_ticket_list);
+//        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_activity_ticket_list);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_activity_ticket_list);
+//        return NavigationUI.navigateUp(navController, appBarConfiguration)
+//                || super.onSupportNavigateUp();
+//    }
 }
