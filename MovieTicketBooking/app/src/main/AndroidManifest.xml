@@ -9,18 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieTicketBooking" >
-
-        <activity android:name=".activity_ticket_list"
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TicketListActivity"
             android:exported="true"
             android:label="@string/title_activity_ticket_list"
-            android:theme="@style/Theme.MovieTicketBooking.NoActionBar">
+            android:theme="@style/Theme.MovieTicketBooking.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
-                <data android:mimeType="text/plain"/>
+
+                <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

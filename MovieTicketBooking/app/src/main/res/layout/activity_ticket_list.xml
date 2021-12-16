@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00594444"
-    tools:context=".activity_ticket_list">
+    tools:context=".TicketListActivity">
 
 
     <androidx.appcompat.widget.Toolbar
