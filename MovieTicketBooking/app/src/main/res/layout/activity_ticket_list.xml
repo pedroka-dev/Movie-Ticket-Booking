@@ -20,7 +20,7 @@
         app:popupTheme="@style/Theme.MovieTicketBooking.PopupOverlay" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewAppTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Popcorn Ticket Shop"
@@ -35,14 +35,26 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewAppSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:text="The best place to buy your cinema tickets!"
         android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintStart_toStartOf="@+id/textViewAppTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAppTitle" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/item_ticket" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

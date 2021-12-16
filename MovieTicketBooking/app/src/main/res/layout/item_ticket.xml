@@ -33,7 +33,7 @@
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <TextView
-                android:id="@+id/textViewTitle"
+                android:id="@+id/textViewMovieTitle"
                 android:layout_width="0dp"
                 android:layout_height="32dp"
                 android:layout_marginStart="20dp"
@@ -43,14 +43,14 @@
                 android:text="Movie Name 4 - The Example"
                 android:textAlignment="viewStart"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="normal"
                 app:layout_constraintBottom_toBottomOf="@+id/imageViewBanner"
                 app:layout_constraintStart_toStartOf="@+id/imageViewBanner" />
 
             <TextView
-                android:id="@+id/textViewPrice"
+                android:id="@+id/textViewMoviePrice"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
                 android:layout_marginEnd="15dp"
@@ -75,7 +75,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBanner" />
 
             <TextView
-                android:id="@+id/textViewDate"
+                android:id="@+id/textViewMovieDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -86,7 +86,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBanner" />
 
             <TextView
-                android:id="@+id/textViewTime"
+                android:id="@+id/textViewMovieTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -103,12 +103,12 @@
                 android:layout_marginStart="30dp"
                 android:contentDescription="Star that represents the user reviews."
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewDate"
+                app:layout_constraintStart_toEndOf="@+id/textViewMovieDate"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBanner"
                 app:srcCompat="@android:drawable/btn_star_big_on" />
 
             <TextView
-                android:id="@+id/textViewStars"
+                android:id="@+id/textViewMovieStars"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="5.0"
