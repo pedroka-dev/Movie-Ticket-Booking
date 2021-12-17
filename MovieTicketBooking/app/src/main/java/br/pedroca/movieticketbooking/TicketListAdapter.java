@@ -55,7 +55,7 @@ public class TicketListAdapter extends BaseAdapter {
         sessionDate.setText(ticket.getSessionDate());
 
         TextView sessionTime= createdView.findViewById(R.id.textViewSessionTime);
-        sessionTime.setText(ticket.getSessionDate());
+        sessionTime.setText(ticket.getSessionTime());
 
 
         ImageView bannerImage = createdView.findViewById(R.id.imageViewBanner);

@@ -88,17 +88,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="@sample/ticketExamples.json/time"/>
 
-            <ImageView
-                android:id="@+id/imageViewStar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:contentDescription="Star that represents the user reviews."
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewSessionDate"
-                app:layout_constraintTop_toBottomOf="@+id/imageViewBanner"
-                app:srcCompat="@android:drawable/btn_star_big_on" />
-
             <TextView
                 android:id="@+id/textViewMovieRating"
                 android:layout_width="wrap_content"
@@ -109,7 +98,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageViewStar"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBanner"
-                tools:text="@sample/ticketExamples.json/rating"/>
+                tools:text="@sample/ticketExamples.json/rating" />
 
             <Button
                 android:id="@+id/buttonBuyTicket"
@@ -122,6 +111,19 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/imageViewBanner"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBanner"
+                />
+
+            <ImageView
+                android:id="@+id/imageViewStar"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="40dp"
+                android:visibility="visible"
+                android:src="@drawable/star"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textViewSessionDate"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewBanner"
+                app:srcCompat="@drawable/star"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
