@@ -11,10 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Locale;
 
 public class TicketListAdapter extends BaseAdapter {
     private final List<Ticket> ticketList;
-    private Context context;
+    private final Context context;
 
     public TicketListAdapter(List<Ticket> ticketList, Context context){
         this.ticketList = ticketList;
@@ -41,29 +42,48 @@ public class TicketListAdapter extends BaseAdapter {
                 .inflate(R.layout.item_ticket, viewGroup, false);
 
         Ticket ticket = ticketList.get(id);
+        showTitle(createdView, ticket);
+        showPrice(createdView, ticket);
+        showRating(createdView, ticket);
+        showSessionDate(createdView, ticket);
+        showSessionTime(createdView, ticket);
+        showImage(createdView, ticket);
 
+        return createdView;
+    }
+
+    private void showTitle(View createdView, Ticket ticket) {
         TextView title = createdView.findViewById(R.id.textViewMovieTitle);
         title.setText(ticket.getTitle());
+    }
 
+    private void showPrice(View createdView, Ticket ticket) {
         TextView price = createdView.findViewById(R.id.textViewMoviePrice);
-        price.setText(Double.toString(ticket.getPrice()));
+        String priceText = "$" + String.format(Locale.getDefault(),"%.2f", ticket.getPrice());
+        price.setText(priceText);
+    }
 
+    private void showRating(View createdView, Ticket ticket) {
         TextView rating = createdView.findViewById(R.id.textViewMovieRating);
-        rating.setText(Double.toString(ticket.getRating()));
+        String ratingText = String.format(Locale.getDefault(),"%.1f",ticket.getRating());
+        rating.setText(ratingText);
+    }
 
+    private void showSessionDate(View createdView, Ticket ticket) {
         TextView sessionDate = createdView.findViewById(R.id.textViewSessionDate);
         sessionDate.setText(ticket.getSessionDate());
+    }
 
+    private void showSessionTime(View createdView, Ticket ticket) {
         TextView sessionTime= createdView.findViewById(R.id.textViewSessionTime);
         sessionTime.setText(ticket.getSessionTime());
+    }
 
-
+    private void showImage(View createdView, Ticket ticket) {
         ImageView bannerImage = createdView.findViewById(R.id.imageViewBanner);
         Resources resources = context.getResources();
         int idOfDrawable = resources.getIdentifier(ticket.getBannerImage(), "drawable", context.getPackageName());
         Drawable drawableBannerImage = resources.getDrawable(idOfDrawable);
         bannerImage.setImageDrawable(drawableBannerImage);
-
-        return createdView;
     }
 }
