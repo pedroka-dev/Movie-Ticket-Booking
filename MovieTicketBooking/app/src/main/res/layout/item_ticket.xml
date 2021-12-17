@@ -65,7 +65,7 @@
                 tools:text="@sample/ticketExamples.json/price"/>
 
             <TextView
-                android:id="@+id/textViewMovieDate"
+                android:id="@+id/textViewSessionDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -77,7 +77,7 @@
                 tools:text="@sample/ticketExamples.json/date"/>
 
             <TextView
-                android:id="@+id/textViewMovieTime"
+                android:id="@+id/textViewSessionTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -95,12 +95,12 @@
                 android:layout_marginStart="30dp"
                 android:contentDescription="Star that represents the user reviews."
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewMovieDate"
+                app:layout_constraintStart_toEndOf="@+id/textViewSessionDate"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBanner"
                 app:srcCompat="@android:drawable/btn_star_big_on" />
 
             <TextView
-                android:id="@+id/textViewMovieStars"
+                android:id="@+id/textViewMovieRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="5.0"
