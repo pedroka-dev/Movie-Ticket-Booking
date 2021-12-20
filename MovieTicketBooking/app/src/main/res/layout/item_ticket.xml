@@ -92,12 +92,13 @@
                 android:id="@+id/textViewMovieRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:background="#97040404"
                 android:text="5.0"
                 android:textColor="#FF9800"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageViewStar"
-                app:layout_constraintTop_toBottomOf="@+id/imageViewBanner"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewStar"
+                app:layout_constraintEnd_toEndOf="@+id/imageViewBanner"
                 tools:text="@sample/ticketExamples.json/rating" />
 
             <Button
@@ -105,26 +106,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:text="BUY"
-                android:textSize="20sp"
+                android:text="Add to Cart"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/imageViewBanner"
-                app:layout_constraintTop_toBottomOf="@+id/imageViewBanner"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/imageViewBanner" />
 
             <ImageView
                 android:id="@+id/imageViewStar"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="40dp"
-                android:visibility="visible"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:layout_marginBottom="10dp"
+                android:background="#97040404"
                 android:src="@drawable/star"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewSessionDate"
-                app:layout_constraintTop_toBottomOf="@+id/imageViewBanner"
-                app:srcCompat="@drawable/star"
-                />
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewBanner"
+                app:layout_constraintEnd_toStartOf="@+id/textViewMovieRating"
+                app:srcCompat="@drawable/star" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

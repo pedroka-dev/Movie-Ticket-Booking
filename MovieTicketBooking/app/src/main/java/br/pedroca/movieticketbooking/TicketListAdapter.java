@@ -59,13 +59,13 @@ public class TicketListAdapter extends BaseAdapter {
 
     private void showPrice(View createdView, Ticket ticket) {
         TextView price = createdView.findViewById(R.id.textViewMoviePrice);
-        String priceText = "$" + String.format(Locale.getDefault(),"%.2f", ticket.getPrice());
+        String priceText = "$" + String.format(Locale.getDefault(),"%.2f", ticket.getPrice());  //todo: responsibility should be on Util layer
         price.setText(priceText);
     }
 
     private void showRating(View createdView, Ticket ticket) {
         TextView rating = createdView.findViewById(R.id.textViewMovieRating);
-        String ratingText = String.format(Locale.getDefault(),"%.1f",ticket.getRating());
+        String ratingText = String.format(Locale.getDefault(),"%.1f",ticket.getRating());   //todo: responsibility should be on Util layer
         rating.setText(ratingText);
     }
 

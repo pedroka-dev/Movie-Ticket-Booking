@@ -4,8 +4,8 @@ public class Ticket {
     private String title;
     private double price;
     private double rating;
-    private String sessionDate;
-    private String sessionTime;
+    private String sessionDate;     //todo: change to Date type?
+    private String sessionTime;     //todo: change to Time type?
     private String bannerImage;
 
     public Ticket(String title, double price, double rating, String sessionDate, String sessionTime, String bannerImage) {
