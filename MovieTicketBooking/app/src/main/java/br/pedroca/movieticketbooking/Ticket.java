@@ -1,6 +1,6 @@
 package br.pedroca.movieticketbooking;
 
-public class Ticket {
+public class Ticket extends Entity {
     private String title;
     private double price;
     private double rating;
@@ -68,11 +68,12 @@ public class Ticket {
     @Override
     public String toString() {
         return "Ticket{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", price=" + price +
                 ", rating=" + rating +
-                ", sessionDate=" + sessionDate +
-                ", sessionTime=" + sessionTime +
+                ", sessionDate='" + sessionDate + '\'' +
+                ", sessionTime='" + sessionTime + '\'' +
                 ", bannerImage='" + bannerImage + '\'' +
                 '}';
     }
