@@ -3,13 +3,13 @@ package br.pedroca.movieticketbooking;
 public class Order extends BaseEntity {
     private Ticket ticket;
     private int quantity;
-    private String user;
+    private String code;
 
-    public Order(int id,Ticket ticket, int quantity, String user) {
+    public Order(int id,Ticket ticket, int quantity, String code) {
         this.id = id;
         this.ticket = ticket;
         this.quantity = quantity;
-        this.user = user;
+        this.code = code;
     }
 
     public Ticket getTicket() {
@@ -28,12 +28,12 @@ public class Order extends BaseEntity {
         this.quantity = quantity;
     }
 
-    public String getUser() {
-        return user;
+    public String getCode() {
+        return code;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Order extends BaseEntity {
                 "id=" + id +
                 ", ticket=" + ticket +
                 ", quantity=" + quantity +
-                ", user='" + user + '\'' +
+                ", code='" + code + '\'' +
                 '}';
     }
 }
