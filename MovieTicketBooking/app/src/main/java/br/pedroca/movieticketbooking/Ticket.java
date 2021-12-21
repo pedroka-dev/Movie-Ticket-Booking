@@ -1,6 +1,6 @@
 package br.pedroca.movieticketbooking;
 
-public class Ticket extends Entity {
+public class Ticket extends BaseEntity {
     private String title;
     private double price;
     private double rating;
@@ -8,7 +8,8 @@ public class Ticket extends Entity {
     private String sessionTime;     //todo: change to Time type?
     private String bannerImage;
 
-    public Ticket(String title, double price, double rating, String sessionDate, String sessionTime, String bannerImage) {
+    public Ticket(int id, String title, double price, double rating, String sessionDate, String sessionTime, String bannerImage) {
+        this.id = id;
         this.title = title;
         this.price = price;
         this.rating = rating;

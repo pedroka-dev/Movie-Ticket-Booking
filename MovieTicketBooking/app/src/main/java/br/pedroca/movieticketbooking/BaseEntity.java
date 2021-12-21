@@ -1,6 +1,6 @@
 package br.pedroca.movieticketbooking;
 
-public abstract class Entity {
+public abstract class BaseEntity {
     protected int id;
 
     public int getId() {

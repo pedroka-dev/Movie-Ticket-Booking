@@ -1,11 +1,12 @@
 package br.pedroca.movieticketbooking;
 
-public class Order extends Entity {
+public class Order extends BaseEntity {
     private Ticket ticket;
     private int quantity;
     private String user;
 
-    public Order(Ticket ticket, int quantity, String user) {
+    public Order(int id,Ticket ticket, int quantity, String user) {
+        this.id = id;
         this.ticket = ticket;
         this.quantity = quantity;
         this.user = user;
