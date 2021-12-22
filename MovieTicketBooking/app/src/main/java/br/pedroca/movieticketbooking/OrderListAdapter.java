@@ -43,33 +43,35 @@ public class OrderListAdapter extends BaseAdapter {
         showPrice(createdView, order.getTicket());
         showCode(createdView, order);
         showQuantity(createdView,order);
-        //showOrderPrice(createdView,order);
+        showOrderPrice(createdView,order);
 
         return createdView;
     }
 
-    private void showOrderPrice(View createdView, Order order) {
-
-    }
-
-    private void showQuantity(View createdView, Order order) {
-        TextView title = createdView.findViewById(R.id.textViewOrderQuantity);
-        title.setText(Integer.toString(order.getQuantity()));
+    private void showTitle(View createdView, Ticket ticket) {
+        TextView txtView = createdView.findViewById(R.id.textViewOrderMovieTitle);
+        txtView.setText(ticket.getTitle());
     }
 
     private void showCode(View createdView, Order order) {
-        TextView title = createdView.findViewById(R.id.textViewOrderCode);
-        title.setText(order.getCode());
+        TextView txtView = createdView.findViewById(R.id.textViewOrderCode);
+        txtView.setText(order.getCode());
     }
 
-    private void showTitle(View createdView, Ticket ticket) {
-        TextView title = createdView.findViewById(R.id.textViewOrderMovieTitle);
-        title.setText(ticket.getTitle());
+    private void showQuantity(View createdView, Order order) {
+        TextView txtView = createdView.findViewById(R.id.textViewOrderQuantity);
+        txtView.setText(Integer.toString(order.getQuantity()));
+    }
+
+    private void showOrderPrice(View createdView, Order order) {
+        TextView txtView = createdView.findViewById(R.id.textViewOrderTotalPrice);
+        String priceText = "$" + String.format(Locale.getDefault(),"%.2f", order.getTotalPrice());  //todo: responsibility should be on Util layer
+        txtView.setText(priceText);
     }
 
     private void showPrice(View createdView, Ticket ticket) {
-        TextView price = createdView.findViewById(R.id.textViewOrderMoviePrice);
+        TextView txtView = createdView.findViewById(R.id.textViewOrderMoviePrice);
         String priceText = "$" + String.format(Locale.getDefault(),"%.2f", ticket.getPrice());  //todo: responsibility should be on Util layer
-        price.setText(priceText);
+        txtView.setText(priceText);
     }
 }

@@ -4,12 +4,14 @@ public class Order extends BaseEntity {
     private Ticket ticket;
     private int quantity;
     private String code;
+    private double totalPrice;
 
     public Order(int id,Ticket ticket, int quantity, String code) {
         this.id = id;
         this.ticket = ticket;
         this.quantity = quantity;
         this.code = code;
+        this.totalPrice = calculateTotalPrice();
     }
 
     public Ticket getTicket() {
@@ -26,6 +28,7 @@ public class Order extends BaseEntity {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+        //this.totalPrice = calculateTotalPrice();
     }
 
     public String getCode() {
@@ -36,6 +39,14 @@ public class Order extends BaseEntity {
         this.code = code;
     }
 
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public double calculateTotalPrice() {
+        return quantity * ticket.getPrice();
+    }
+
     @Override
     public String toString() {
         return "Order{" +
@@ -43,6 +54,7 @@ public class Order extends BaseEntity {
                 ", ticket=" + ticket +
                 ", quantity=" + quantity +
                 ", code='" + code + '\'' +
+                ", totalPrice=" + totalPrice +
                 '}';
     }
 }
