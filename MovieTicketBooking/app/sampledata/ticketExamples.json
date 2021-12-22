@@ -4,5 +4,7 @@
   "price" : "$15,00",
   "rating" : "4.5",
   "date" : "15/05/22",
-  "time" : "16:30"
+  "time" : "16:30",
+  "code" : "#FU8G3HY",
+  "quantity": "3"
 }

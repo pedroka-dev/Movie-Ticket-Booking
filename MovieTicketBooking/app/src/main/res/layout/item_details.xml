@@ -23,116 +23,116 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/textViewTime2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="$420,69"
-                android:textColor="#4CAF50"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/textViewTime"
-                app:layout_constraintTop_toTopOf="@+id/textViewConstPrice" />
-
-            <TextView
-                android:id="@+id/textViewConstPrice"
+                android:id="@+id/txtDetailsConstPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="Price p/ Ticket:"
+                android:text="@string/price_p_ticket"
                 android:textColor="@color/purple_500"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/textViewConstTime"
-                app:layout_constraintTop_toBottomOf="@+id/textViewConstTime" />
+                app:layout_constraintStart_toStartOf="@+id/txtDetailsConstTime"
+                app:layout_constraintTop_toBottomOf="@+id/txtDetailsConstTime" />
 
             <TextView
-                android:id="@+id/textViewConstTitle"
+                android:id="@+id/txtDetailsConstTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="10dp"
-                android:text="Movie Title:"
+                android:text="@string/movie_title"
                 android:textColor="@color/purple_500"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewConstRating"
+                android:id="@+id/txtDetailsConstRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Critics Rating:"
+                android:text="@string/critics_rating"
                 android:textColor="@color/purple_500"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@+id/textViewConstTitle"
-                app:layout_constraintTop_toBottomOf="@+id/textViewConstTitle" />
+                app:layout_constraintStart_toStartOf="@+id/txtDetailsConstTitle"
+                app:layout_constraintTop_toBottomOf="@+id/txtDetailsConstTitle" />
 
             <TextView
-                android:id="@+id/textViewConstDate"
+                android:id="@+id/txtDetailsConstDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Session Date:"
+                android:text="@string/session_date"
                 android:textColor="@color/purple_500"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@+id/textViewConstRating"
-                app:layout_constraintTop_toBottomOf="@+id/textViewConstRating" />
+                app:layout_constraintStart_toStartOf="@+id/txtDetailsConstRating"
+                app:layout_constraintTop_toBottomOf="@+id/txtDetailsConstRating" />
 
             <TextView
-                android:id="@+id/textViewConstTime"
+                android:id="@+id/txtDetailsConstTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Session Time:"
+                android:text="@string/session_time"
                 android:textColor="@color/purple_500"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@+id/textViewConstDate"
-                app:layout_constraintTop_toBottomOf="@+id/textViewConstDate" />
+                app:layout_constraintStart_toStartOf="@+id/txtDetailsConstDate"
+                app:layout_constraintTop_toBottomOf="@+id/txtDetailsConstDate" />
 
             <TextView
-                android:id="@+id/textViewTitle"
+                android:id="@+id/txtDetailsPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColor="#236826"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/txtDetailsTime"
+                app:layout_constraintTop_toTopOf="@+id/txtDetailsConstPrice"
+                tools:text="@sample/ticketExamples.json/price" />
+
+            <TextView
+                android:id="@+id/txtDetailsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Spider-man 2"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewConstTitle"
-                app:layout_constraintTop_toTopOf="@+id/textViewConstTitle" />
+                app:layout_constraintStart_toEndOf="@+id/txtDetailsConstTitle"
+                app:layout_constraintTop_toTopOf="@+id/txtDetailsConstTitle"
+                tools:text="@sample/ticketExamples.json/title"/>
 
             <TextView
-                android:id="@+id/textViewRating"
+                android:id="@+id/txtDetailsRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.5"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@+id/textViewTitle"
-                app:layout_constraintTop_toTopOf="@+id/textViewConstRating" />
+                app:layout_constraintStart_toStartOf="@+id/txtDetailsTitle"
+                app:layout_constraintTop_toTopOf="@+id/txtDetailsConstRating"
+                tools:text="@sample/ticketExamples.json/rating"/>
 
             <TextView
-                android:id="@+id/textViewDate"
+                android:id="@+id/txtDetailsDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="11/11/11"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@+id/textViewRating"
-                app:layout_constraintTop_toTopOf="@+id/textViewConstDate" />
+                app:layout_constraintStart_toStartOf="@+id/txtDetailsRating"
+                app:layout_constraintTop_toTopOf="@+id/txtDetailsConstDate"
+                tools:text="@sample/ticketExamples.json/date"/>
 
             <TextView
-                android:id="@+id/textViewTime"
+                android:id="@+id/txtDetailsTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="11:11"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@+id/textViewDate"
-                app:layout_constraintTop_toTopOf="@+id/textViewConstTime" />
+                app:layout_constraintStart_toStartOf="@+id/txtDetailsDate"
+                app:layout_constraintTop_toTopOf="@+id/txtDetailsConstTime"
+                tools:text="@sample/ticketExamples.json/time"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

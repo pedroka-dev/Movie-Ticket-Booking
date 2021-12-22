@@ -7,7 +7,20 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="dialog_title">Cinema Ticket Shop</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="shopping_cart">Shopping Cart</string>
+    <string name="cart">Cart</string>
+    <string name="Added_to_cart">The movie ticket has been added to the cart successfully.</string>
+    <string name="price_p_ticket">Price p/ Ticket:</string>
+    <string name="movie_title">Movie Title:</string>
+    <string name="critics_rating">Critics Rating:</string>
+    <string name="session_date">Session Date:</string>
+    <string name="session_time">Session Time:</string>
+    <string name="ticket">Ticket:</string>
+    <string name="price_p_unit">Price p/ unit:</string>
+    <string name="price">Price:</string>
+    <string name="cart_order">Cart Order</string>
+    <string name="movie_banner">Movie Banner</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="example_rating">5.0</string>
+    <string name="star_icon">Star icon</string>
 </resources>

@@ -8,10 +8,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textViewDialogQuestion"
+        android:id="@+id/txtDialogQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="The movie ticket has been added to the cart sucessfully."
+        android:text="@string/Added_to_cart"
         android:textColor="@color/black"
         android:textSize="16sp" />
 </LinearLayout>

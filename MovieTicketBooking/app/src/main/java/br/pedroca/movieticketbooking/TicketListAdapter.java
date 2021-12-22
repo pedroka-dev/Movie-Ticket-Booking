@@ -53,29 +53,29 @@ public class TicketListAdapter extends BaseAdapter {
     }
 
     private void showTitle(View createdView, Ticket ticket) {
-        TextView title = createdView.findViewById(R.id.textViewMovieTitle);
+        TextView title = createdView.findViewById(R.id.txtTicketTitle);
         title.setText(ticket.getTitle());
     }
 
     private void showPrice(View createdView, Ticket ticket) {
-        TextView price = createdView.findViewById(R.id.textViewMoviePrice);
+        TextView price = createdView.findViewById(R.id.txtTicketPrice);
         String priceText = "$" + String.format(Locale.getDefault(),"%.2f", ticket.getPrice());  //todo: responsibility should be on Util layer
         price.setText(priceText);
     }
 
     private void showRating(View createdView, Ticket ticket) {
-        TextView rating = createdView.findViewById(R.id.textViewMovieRating);
+        TextView rating = createdView.findViewById(R.id.txtTicketRating);
         String ratingText = String.format(Locale.getDefault(),"%.1f",ticket.getRating());   //todo: responsibility should be on Util layer
         rating.setText(ratingText);
     }
 
     private void showSessionDate(View createdView, Ticket ticket) {
-        TextView sessionDate = createdView.findViewById(R.id.textViewSessionDate);
+        TextView sessionDate = createdView.findViewById(R.id.txtTicketDate);
         sessionDate.setText(ticket.getSessionDate());
     }
 
     private void showSessionTime(View createdView, Ticket ticket) {
-        TextView sessionTime= createdView.findViewById(R.id.textViewSessionTime);
+        TextView sessionTime= createdView.findViewById(R.id.txtTicketTime);
         sessionTime.setText(ticket.getSessionTime());
     }
 

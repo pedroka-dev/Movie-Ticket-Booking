@@ -25,22 +25,34 @@
                 android:id="@+id/imageViewBanner"
                 android:layout_width="0dp"
                 android:layout_height="140dp"
-                android:contentDescription="Movie Banner"
+                android:contentDescription="@string/movie_banner"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@sample/ticketExamples.json/image" />
 
+            <ImageView
+                android:id="@+id/imageViewStar"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:layout_marginBottom="10dp"
+                android:background="#97040404"
+                android:src="@drawable/star"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewBanner"
+                app:layout_constraintEnd_toStartOf="@+id/txtTicketRating"
+                app:srcCompat="@drawable/star"
+                android:contentDescription="@string/star_icon" />
+
             <TextView
-                android:id="@+id/textViewMovieTitle"
+                android:id="@+id/txtTicketTitle"
                 android:layout_width="0dp"
                 android:layout_height="32dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginBottom="10dp"
                 android:background="#97040404"
                 android:fontFamily="sans-serif"
-                android:text="Movie Name 4 - The Example"
                 android:textAlignment="viewStart"
                 android:textColor="@color/white"
                 android:textSize="22sp"
@@ -51,50 +63,46 @@
                 tools:text="@sample/ticketExamples.json/title"/>
 
             <TextView
-                android:id="@+id/textViewMoviePrice"
+                android:id="@+id/txtTicketPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
                 android:layout_marginEnd="15dp"
-                android:text="R$420,69"
                 android:textAlignment="viewEnd"
-                android:textColor="#29AC2E"
+                android:textColor="#236826"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/buttonBuyTicket"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBanner"
-                tools:text="@sample/ticketExamples.json/price"/>
+                tools:text="@sample/ticketExamples.json/price" />
 
             <TextView
-                android:id="@+id/textViewSessionDate"
+                android:id="@+id/txtTicketDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="6dp"
-                android:text="11/11/11"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBanner"
                 tools:text="@sample/ticketExamples.json/date"/>
 
             <TextView
-                android:id="@+id/textViewSessionTime"
+                android:id="@+id/txtTicketTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginBottom="8dp"
-                android:text="11:11"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="@sample/ticketExamples.json/time"/>
 
             <TextView
-                android:id="@+id/textViewMovieRating"
+                android:id="@+id/txtTicketRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="30dp"
                 android:background="#97040404"
-                android:text="5.0"
                 android:textColor="#FF9800"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageViewStar"
@@ -106,25 +114,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:text="Add to Cart"
+                android:text="@string/add_to_cart"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:onClick="addToCartButtonClicked"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/imageViewBanner"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBanner" />
-
-            <ImageView
-                android:id="@+id/imageViewStar"
-                android:layout_width="27dp"
-                android:layout_height="27dp"
-                android:layout_marginBottom="10dp"
-                android:background="#97040404"
-                android:src="@drawable/star"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="@+id/imageViewBanner"
-                app:layout_constraintEnd_toStartOf="@+id/textViewMovieRating"
-                app:srcCompat="@drawable/star" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

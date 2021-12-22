@@ -49,7 +49,7 @@ public class OrderListAdapter extends BaseAdapter {
     }
 
     private void showTitle(View createdView, Ticket ticket) {
-        TextView txtView = createdView.findViewById(R.id.textViewOrderMovieTitle);
+        TextView txtView = createdView.findViewById(R.id.txtOrderMovieTitle);
         txtView.setText(ticket.getTitle());
     }
 
@@ -59,18 +59,18 @@ public class OrderListAdapter extends BaseAdapter {
     }
 
     private void showQuantity(View createdView, Order order) {
-        TextView txtView = createdView.findViewById(R.id.textViewOrderQuantity);
+        TextView txtView = createdView.findViewById(R.id.txtOrderQuantity);
         txtView.setText(Integer.toString(order.getQuantity()));
     }
 
     private void showOrderPrice(View createdView, Order order) {
-        TextView txtView = createdView.findViewById(R.id.textViewOrderTotalPrice);
+        TextView txtView = createdView.findViewById(R.id.txtOrderTotalPrice);
         String priceText = "$" + String.format(Locale.getDefault(),"%.2f", order.getTotalPrice());  //todo: responsibility should be on Util layer
         txtView.setText(priceText);
     }
 
     private void showPrice(View createdView, Ticket ticket) {
-        TextView txtView = createdView.findViewById(R.id.textViewOrderMoviePrice);
+        TextView txtView = createdView.findViewById(R.id.txtOrderMoviePrice);
         String priceText = "$" + String.format(Locale.getDefault(),"%.2f", ticket.getPrice());  //todo: responsibility should be on Util layer
         txtView.setText(priceText);
     }

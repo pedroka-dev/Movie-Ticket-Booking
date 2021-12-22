@@ -20,11 +20,11 @@
         app:popupTheme="@style/Theme.MovieTicketBooking" />
 
     <TextView
-        android:id="@+id/textViewCartTitle"
+        android:id="@+id/txtCartTitle"
         android:layout_width="226dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Shopping Cart"
+        android:text="@string/shopping_cart"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -60,7 +60,7 @@
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:text="asfasfas"
             android:layout_gravity="center"
             />

@@ -20,17 +20,17 @@
         app:popupTheme="@style/Theme.MovieTicketBooking" />
 
     <TextView
-        android:id="@+id/textViewCartTitle"
+        android:id="@+id/txtMainTitle"
         android:layout_width="226dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="@string/dialog_title"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        tools:text="@string/dialog_title"/>
 
     <ListView
         android:id="@+id/listViewTickets"
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="Cart"
+        android:text="@string/cart"
         android:onClick="showCartButtonClicked"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="@+id/toolbar"
