@@ -3,6 +3,7 @@ package br.pedroca.movieticketbooking;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import java.util.List;
 
 import br.pedroca.movieticketbooking.databinding.ActivityTicketListBinding;
+
 
 public class TicketListActivity extends Activity {
 
@@ -31,10 +33,10 @@ public class TicketListActivity extends Activity {
         ticketListView.setAdapter(new TicketListAdapter(ticketList,this));
     }
 
-    public void showAlertDialogButtonClicked(View view)
+    public void addToCartButtonClicked(View view)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("'MovieName' Added to Cart");
+        builder.setTitle(getString(R.string.dialog_title));
 
         final View customLayout = getLayoutInflater().inflate( R.layout.dialog_alert, null);
         builder.setView(customLayout);
@@ -49,6 +51,11 @@ public class TicketListActivity extends Activity {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    public void showCartButtonClicked(View view){
+        Intent intent = new Intent(this,TicketListActivity.class);
+        startActivity(intent);
     }
 
     //private void sendDialogDataToActivity(String data)
