@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00594444"
-    tools:context=".TicketListActivity">
+    tools:context=".OrderListActivity">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
     <ListView
-        android:id="@+id/listViewTickets"
+        android:id="@+id/listViewOrders"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -43,7 +43,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/item_cart" />
+        tools:listitem="@layout/item_order" />
 
     <LinearLayout
         android:id="@+id/linearLayout"

@@ -6,11 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import androidx.navigation.ui.AppBarConfiguration;
 
 import java.util.List;
 
@@ -27,8 +23,8 @@ public class TicketListActivity extends Activity {
         super.onCreate(savedInstanceState);
         binding = ActivityTicketListBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_ticket_list);
-        ListView ticketListView = findViewById(R.id.listViewTickets);
 
+        ListView ticketListView = findViewById(R.id.listViewTickets);
         List<Ticket> ticketList = new TicketDao().GetAll();
         ticketListView.setAdapter(new TicketListAdapter(ticketList,this));
     }
@@ -54,7 +50,7 @@ public class TicketListActivity extends Activity {
     }
 
     public void showCartButtonClicked(View view){
-        Intent intent = new Intent(this,TicketListActivity.class);
+        Intent intent = new Intent(this, OrderListActivity.class);
         startActivity(intent);
     }
 
