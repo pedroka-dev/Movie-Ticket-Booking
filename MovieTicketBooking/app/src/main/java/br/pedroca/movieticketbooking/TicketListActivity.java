@@ -6,27 +6,35 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import br.pedroca.movieticketbooking.databinding.ActivityTicketListBinding;
 
-
-public class TicketListActivity extends Activity {
+public class TicketListActivity extends AppCompatActivity {
 
     //private AppBarConfiguration appBarConfiguration;
-    private ActivityTicketListBinding binding;
+    //private ActivityTicketListBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityTicketListBinding.inflate(getLayoutInflater());
+        //binding = ActivityTicketListBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_ticket_list);
 
-        ListView ticketListView = findViewById(R.id.listViewTickets);
+        RecyclerView ticketRecyclerView = findViewById(R.id.recyclerViewTickets);
+        //ticketRecyclerView.setHasFixedSize(true);
         List<Ticket> ticketList = new TicketDao().GetAll();
-        ticketListView.setAdapter(new TicketListAdapter(ticketList,this));
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        //layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        ticketRecyclerView.setLayoutManager(layoutManager);
+
+        ticketRecyclerView.setAdapter(new TicketListAdapter(this,ticketList));
+
     }
 
     public void addToCartButtonClicked(View view)

@@ -23,4 +23,5 @@
     <string name="add_to_cart">Add to Cart</string>
     <string name="example_rating">5.0</string>
     <string name="star_icon">Star icon</string>
+    <string name="buy">Buy</string>
 </resources>

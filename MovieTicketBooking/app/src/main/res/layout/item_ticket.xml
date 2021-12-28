@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
@@ -38,12 +38,12 @@
                 android:layout_height="27dp"
                 android:layout_marginBottom="10dp"
                 android:background="#97040404"
+                android:contentDescription="@string/star_icon"
                 android:src="@drawable/star"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="@+id/imageViewBanner"
                 app:layout_constraintEnd_toStartOf="@+id/txtTicketRating"
-                app:srcCompat="@drawable/star"
-                android:contentDescription="@string/star_icon" />
+                app:srcCompat="@drawable/star" />
 
             <TextView
                 android:id="@+id/txtTicketTitle"
@@ -60,7 +60,7 @@
                 android:typeface="normal"
                 app:layout_constraintBottom_toBottomOf="@+id/imageViewBanner"
                 app:layout_constraintStart_toStartOf="@+id/imageViewBanner"
-                tools:text="@sample/ticketExamples.json/title"/>
+                tools:text="@sample/ticketExamples.json/title" />
 
             <TextView
                 android:id="@+id/txtTicketPrice"
@@ -84,7 +84,7 @@
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBanner"
-                tools:text="@sample/ticketExamples.json/date"/>
+                tools:text="@sample/ticketExamples.json/date" />
 
             <TextView
                 android:id="@+id/txtTicketTime"
@@ -95,7 +95,7 @@
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="@sample/ticketExamples.json/time"/>
+                tools:text="@sample/ticketExamples.json/time" />
 
             <TextView
                 android:id="@+id/txtTicketRating"
@@ -114,10 +114,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
+                android:onClick="addToCartButtonClicked"
                 android:text="@string/add_to_cart"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:onClick="addToCartButtonClicked"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/imageViewBanner"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBanner" />
