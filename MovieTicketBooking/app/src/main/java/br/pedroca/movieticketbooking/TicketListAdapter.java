@@ -16,8 +16,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.TicketViewHolder>  {
-    private List<Ticket> ticketList;
-    private Context context;
+    private final List<Ticket> ticketList;
+    private final Context context;
 
     public TicketListAdapter(Context context, List<Ticket> ticketList){
         this.context = context;

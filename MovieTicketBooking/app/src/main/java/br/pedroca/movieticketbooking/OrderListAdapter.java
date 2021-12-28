@@ -1,77 +1,82 @@
 package br.pedroca.movieticketbooking;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 import java.util.Locale;
 
-public class OrderListAdapter extends BaseAdapter {
+public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.OrderViewHolder> {
     private final List<Order> orderList;
     private final Context context;
 
-    public OrderListAdapter(List<Order> orderList, Context context){
-        this.orderList = orderList;
+    public OrderListAdapter(Context context,List<Order> orderList){
         this.context = context;
+        this.orderList = orderList;
     }
+
     @Override
-    public int getCount() {
+    public OrderListAdapter.OrderViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        View createdView = LayoutInflater.from(context)
+                .inflate(R.layout.item_order, viewGroup, false);
+
+        return new OrderViewHolder(createdView);
+    }
+
+    @Override
+    public void onBindViewHolder(OrderListAdapter.OrderViewHolder holder, int id) {
+        Order order = orderList.get(id);
+        holder.showFields(order);
+    }
+
+    @Override
+    public int getItemCount() {
         return orderList.size();
     }
 
     @Override
-    public Order getItem(int id) {
-        return orderList.get(id);
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
     }
 
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
+    public class OrderViewHolder extends RecyclerView.ViewHolder {
+        public TextView title;
+        public TextView price;
+        public TextView code;
+        public TextView quantity;
+        public TextView orderPrice;
 
-    @Override
-    public View getView(int id, View view, ViewGroup viewGroup) {
-        View createdView = LayoutInflater.from(context)
-                .inflate(R.layout.item_order, viewGroup, false);
+        public OrderViewHolder(View itemView) {
+            super(itemView);
+            title = itemView.findViewById(R.id.txtOrderMovieTitle);
+            price = itemView.findViewById(R.id.txtOrderMoviePrice);
+            code = itemView.findViewById(R.id.textViewOrderCode);
+            quantity = itemView.findViewById(R.id.txtOrderQuantity);
+            orderPrice = itemView.findViewById(R.id.txtOrderTotalPrice);
+        }
 
-        Order order = orderList.get(id);
-        showTitle(createdView, order.getTicket());
-        showPrice(createdView, order.getTicket());
-        showCode(createdView, order);
-        showQuantity(createdView,order);
-        showOrderPrice(createdView,order);
+        public void showFields(Order order){
+            Ticket ticket = order.getTicket();
+            title.setText(ticket.getTitle());
+            String priceText = "$" + String.format(Locale.getDefault(),"%.2f", ticket.getPrice());  //todo: responsibility should be on Util layer
+            price.setText(priceText);
 
-        return createdView;
-    }
+            String orderPriceText = "$" + String.format(Locale.getDefault(),"%.2f", order.getTotalPrice());  //todo: responsibility should be on Util layer
+            orderPrice.setText(orderPriceText);
 
-    private void showTitle(View createdView, Ticket ticket) {
-        TextView txtView = createdView.findViewById(R.id.txtOrderMovieTitle);
-        txtView.setText(ticket.getTitle());
-    }
+            quantity.setText(Integer.toString(order.getQuantity()));
 
-    private void showCode(View createdView, Order order) {
-        TextView txtView = createdView.findViewById(R.id.textViewOrderCode);
-        txtView.setText(order.getCode());
-    }
-
-    private void showQuantity(View createdView, Order order) {
-        TextView txtView = createdView.findViewById(R.id.txtOrderQuantity);
-        txtView.setText(Integer.toString(order.getQuantity()));
-    }
-
-    private void showOrderPrice(View createdView, Order order) {
-        TextView txtView = createdView.findViewById(R.id.txtOrderTotalPrice);
-        String priceText = "$" + String.format(Locale.getDefault(),"%.2f", order.getTotalPrice());  //todo: responsibility should be on Util layer
-        txtView.setText(priceText);
-    }
-
-    private void showPrice(View createdView, Ticket ticket) {
-        TextView txtView = createdView.findViewById(R.id.txtOrderMoviePrice);
-        String priceText = "$" + String.format(Locale.getDefault(),"%.2f", ticket.getPrice());  //todo: responsibility should be on Util layer
-        txtView.setText(priceText);
+            code.setText(order.getCode());
+        }
     }
 }

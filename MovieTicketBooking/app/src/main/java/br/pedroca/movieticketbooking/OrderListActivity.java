@@ -4,22 +4,31 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
 import br.pedroca.movieticketbooking.databinding.ActivityOrderListBinding;
 
-public class OrderListActivity extends Activity {
+public class OrderListActivity extends AppCompatActivity {
     //private AppBarConfiguration appBarConfiguration;
-    private ActivityOrderListBinding binding;
+    //private ActivityOrderListBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityOrderListBinding.inflate(getLayoutInflater());
+        //binding = ActivityOrderListBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_order_list);
 
-        ListView orderListView = findViewById(R.id.listViewOrders);
+        RecyclerView orderRecycleView = findViewById(R.id.recycleViewOrders);
         List<Order> orderList = new OrderDao().GetAll();
-        orderListView.setAdapter(new OrderListAdapter(orderList,this));
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        //layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        orderRecycleView.setLayoutManager(layoutManager);
+
+        orderRecycleView.setAdapter(new OrderListAdapter(this, orderList));
     }
 }
