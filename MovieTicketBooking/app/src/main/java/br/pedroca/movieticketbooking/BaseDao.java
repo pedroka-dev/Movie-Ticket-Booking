@@ -41,5 +41,4 @@ public abstract class BaseDao<T extends BaseEntity>{
     public List<T> GetAll(){
         return entityList;
     }
-
 }

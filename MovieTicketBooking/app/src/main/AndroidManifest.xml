@@ -11,10 +11,9 @@
         android:theme="@style/Theme.MovieTicketBooking">
         <activity
             android:name=".OrderListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MovieTicketBooking.NoActionBar"
+            />
         <activity
             android:name=".TicketListActivity"
             android:exported="true"

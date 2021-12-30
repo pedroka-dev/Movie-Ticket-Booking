@@ -6,10 +6,11 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -55,6 +56,7 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Ti
         public TextView sessionDate;
         public TextView sessionTime;
         public ImageView bannerImage;
+        public Button addCard;
 
         public TicketViewHolder(View itemView) {
             super(itemView);
@@ -64,6 +66,7 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Ti
             sessionDate  = itemView.findViewById(R.id.txtTicketDate);
             sessionTime = itemView.findViewById(R.id.txtTicketTime);
             bannerImage = itemView.findViewById(R.id.imageViewBanner);
+            addCard = itemView.findViewById(R.id.buttonAddToCart);
         }
 
         public void showFields(Ticket ticket){
@@ -83,6 +86,11 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Ti
             int idOfDrawable = resources.getIdentifier(ticket.getBannerImage(), "drawable", context.getPackageName());
             Drawable drawableBannerImage = resources.getDrawable(idOfDrawable);
             bannerImage.setImageDrawable(drawableBannerImage);
+
+            addCard.setOnClickListener(view -> {
+                OrderListActivity.createNewOrder(ticket);
+                Toast.makeText(view.getContext(), "Ticket: '" +ticket.getTitle()+"' added to shopping cart successfully.", Toast.LENGTH_SHORT).show();
+            });
         }
     }
 }

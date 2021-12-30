@@ -1,20 +1,18 @@
 package br.pedroca.movieticketbooking;
 
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 
-public class TicketListActivity extends AppCompatActivity {
+public class TicketListActivity extends Activity {
 
     //private AppBarConfiguration appBarConfiguration;
     //private ActivityTicketListBinding binding;
@@ -23,6 +21,7 @@ public class TicketListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         //binding = ActivityTicketListBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_ticket_list);
 
@@ -42,18 +41,12 @@ public class TicketListActivity extends AppCompatActivity {
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.dialog_title));
-
         final View customLayout = getLayoutInflater().inflate(R.layout.dialog_alert, null);
         builder.setView(customLayout);
-
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //EditText editText= customLayout.findViewById(R.id.editText);
-                //sendDialogDataToActivity(ditText.getText().toString());
-            }
+        builder.setPositiveButton("OK", (dialog, which) -> {
+            //EditText editText= customLayout.findViewById(R.id.editText);
+            //sendDialogDataToActivity(ditText.getText().toString());
         });
-
         AlertDialog dialog = builder.create();
         dialog.show();
     }

@@ -71,7 +71,7 @@
                 android:textColor="#236826"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/buttonBuyTicket"
+                app:layout_constraintEnd_toStartOf="@+id/buttonAddToCart"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBanner"
                 tools:text="@sample/ticketExamples.json/price" />
 
@@ -110,11 +110,10 @@
                 tools:text="@sample/ticketExamples.json/rating" />
 
             <Button
-                android:id="@+id/buttonBuyTicket"
+                android:id="@+id/buttonAddToCart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:onClick="addToCartButtonClicked"
                 android:text="@string/add_to_cart"
                 android:textSize="14sp"
                 android:textStyle="bold"

@@ -1,15 +1,14 @@
 package br.pedroca.movieticketbooking;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class OrderListActivity extends AppCompatActivity {
+public class OrderListActivity extends Activity {
     //private AppBarConfiguration appBarConfiguration;
     //private ActivityOrderListBinding binding;
     public static OrderDao orderDao = new OrderDao();   //TODO: add OrderDAO instances by dependency injection
