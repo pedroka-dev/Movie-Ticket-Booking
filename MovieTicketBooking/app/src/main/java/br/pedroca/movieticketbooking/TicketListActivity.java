@@ -1,11 +1,11 @@
 package br.pedroca.movieticketbooking;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +18,7 @@ public class TicketListActivity extends AppCompatActivity {
 
     //private AppBarConfiguration appBarConfiguration;
     //private ActivityTicketListBinding binding;
+    public static TicketDao ticketDao = new TicketDao();    //TODO: add TicketDAO instance by dependency injection
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class TicketListActivity extends AppCompatActivity {
 
         RecyclerView ticketRecyclerView = findViewById(R.id.recyclerViewTickets);
         //ticketRecyclerView.setHasFixedSize(true);
-        List<Ticket> ticketList = new TicketDao().GetAll();
+        List<Ticket> ticketList = ticketDao.GetAll();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         //layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -42,7 +43,7 @@ public class TicketListActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.dialog_title));
 
-        final View customLayout = getLayoutInflater().inflate( R.layout.dialog_alert, null);
+        final View customLayout = getLayoutInflater().inflate(R.layout.dialog_alert, null);
         builder.setView(customLayout);
 
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {

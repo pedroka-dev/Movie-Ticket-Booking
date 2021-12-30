@@ -48,7 +48,6 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Ti
         super.onAttachedToRecyclerView(recyclerView);
     }
 
-
     public class TicketViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
         public TextView price;

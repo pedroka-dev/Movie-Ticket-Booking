@@ -13,6 +13,10 @@ public class Order extends BaseEntity {
         this.code = code;
         this.totalPrice = calculateTotalPrice();
     }
+    public static String generateRandomCode(){
+        String orderCode = "#CodeCode";
+        return orderCode;
+    }
 
     public Ticket getTicket() {
         return ticket;
