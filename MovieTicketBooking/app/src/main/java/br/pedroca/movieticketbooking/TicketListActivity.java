@@ -14,15 +14,12 @@ import java.util.List;
 
 public class TicketListActivity extends Activity {
 
-    //private AppBarConfiguration appBarConfiguration;
-    //private ActivityTicketListBinding binding;
     public static TicketDao ticketDao = new TicketDao();    //TODO: add TicketDAO instance by dependency injection
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //binding = ActivityTicketListBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_ticket_list);
 
         RecyclerView ticketRecyclerView = findViewById(R.id.recyclerViewTickets);
@@ -34,21 +31,6 @@ public class TicketListActivity extends Activity {
         ticketRecyclerView.setLayoutManager(layoutManager);
 
         ticketRecyclerView.setAdapter(new TicketListAdapter(this,ticketList));
-
-    }
-
-    public void addToCartButtonClicked(View view)
-    {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(R.string.dialog_title));
-        final View customLayout = getLayoutInflater().inflate(R.layout.dialog_alert, null);
-        builder.setView(customLayout);
-        builder.setPositiveButton("OK", (dialog, which) -> {
-            //EditText editText= customLayout.findViewById(R.id.editText);
-            //sendDialogDataToActivity(ditText.getText().toString());
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
     }
 
     public void showCartButtonClicked(View view){
@@ -56,8 +38,18 @@ public class TicketListActivity extends Activity {
         startActivity(intent);
     }
 
-    //private void sendDialogDataToActivity(String data)
+    //public void addToCartButtonClicked(View view)
     //{
-    //    Toast.makeText(this,data,Toast.LENGTH_SHORT).show();
+    //AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    //builder.setTitle(getString(R.string.dialog_title));
+    //final View customLayout = getLayoutInflater().inflate(R.layout.dialog_alert, null);
+    //builder.setView(customLayout);
+    //builder.setPositiveButton("OK", (dialog, which) -> {
+    //EditText editText= customLayout.findViewById(R.id.editText);
+    //Toast.makeText(this,ditText.getText().toString(),Toast.LENGTH_SHORT).show();
+    //sendDialogDataToActivity();
+    //});
+    //AlertDialog dialog = builder.create();
+    //dialog.show();
     //}
 }

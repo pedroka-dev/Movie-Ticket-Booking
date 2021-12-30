@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class OrderListActivity extends Activity {
-    //private AppBarConfiguration appBarConfiguration;
-    //private ActivityOrderListBinding binding;
     public static OrderDao orderDao = new OrderDao();   //TODO: add OrderDAO instances by dependency injection
 
     @Override
@@ -27,10 +25,5 @@ public class OrderListActivity extends Activity {
         orderRecycleView.setLayoutManager(layoutManager);
 
         orderRecycleView.setAdapter(new OrderListAdapter(this, orderList));
-    }
-
-    public static void createNewOrder(Ticket ticket){
-        Order order = new Order(0,ticket,1,Order.generateRandomCode());        //TODO: method count() instead of accessing orderDao.entityList.size() directly
-        orderDao.Insert(order);
     }
 }

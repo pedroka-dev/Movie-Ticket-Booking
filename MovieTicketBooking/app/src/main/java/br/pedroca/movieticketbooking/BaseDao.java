@@ -1,13 +1,7 @@
 package br.pedroca.movieticketbooking;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 public abstract class BaseDao<T extends BaseEntity>{
     protected List<T> entityList = new ArrayList<>();
@@ -17,8 +11,8 @@ public abstract class BaseDao<T extends BaseEntity>{
         entityList.add(object);
     }
 
-    public  void Update(T object,int id){
-        throw new UnsupportedOperationException();
+    public  void Update(T object,int id){       //todo: this is lazy and stupid. please fix asap
+        entityList.set(id,object);
     }
 
     public void DeleteById(int id){
