@@ -25,9 +25,9 @@ public class OrderListActivity extends Activity {
         //layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         orderRecycleView.setLayoutManager(layoutManager);
 
-        orderRecycleView.setAdapter(new OrderListAdapter(this, orderList));
-
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new OrderItemTouchHelperCallback());
+        OrderListAdapter orderAdapter = new OrderListAdapter(this, orderList);
+        orderRecycleView.setAdapter(orderAdapter);
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new OrderItemTouchHelperCallback(orderAdapter));
         itemTouchHelper.attachToRecyclerView(orderRecycleView);
     }
 }
