@@ -4,7 +4,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,6 +52,8 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         public TextView code;
         public TextView quantity;
         public TextView orderPrice;
+        public Button increaseQuantity;
+        public Button decreaseQuantity;
 
         public OrderViewHolder(View itemView) {
             super(itemView);
@@ -58,7 +62,8 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             code = itemView.findViewById(R.id.textViewOrderCode);
             quantity = itemView.findViewById(R.id.txtOrderQuantity);
             orderPrice = itemView.findViewById(R.id.txtOrderTotalPrice);
-
+            increaseQuantity = itemView.findViewById(R.id.buttonIncreaseQuantity);
+            decreaseQuantity = itemView.findViewById(R.id.buttonDecreaseQuantity);
         }
 
         public void showFields(Order order){
@@ -73,6 +78,17 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             quantity.setText(Integer.toString(order.getQuantity()));
 
             code.setText(order.getCode());
+
+            increaseQuantity.setOnClickListener(view -> {
+                OrderListActivity.orderDao.addOrderQuantity(order.getId());
+                notifyItemChanged(order.getId());
+            });
+
+            decreaseQuantity.setOnClickListener(view -> {
+                OrderListActivity.orderDao.subtractOrderQuantity(order.getId());
+                notifyItemChanged(order.getId());
+            });
+
         }
     }
 }

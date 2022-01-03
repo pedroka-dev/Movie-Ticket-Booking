@@ -36,8 +36,9 @@ public class OrderDao extends BaseDao<Order> {
 
     public void subtractOrderQuantity(int idOrder){
         Order order = this.GetById(idOrder);
-        order.setQuantity(order.getQuantity()-1);
-        this.Update(order,idOrder);
+        if(order.getQuantity() > 1) {
+            order.setQuantity(order.getQuantity() - 1);
+            this.Update(order, idOrder);
+        }
     }
-
 }
