@@ -11,14 +11,19 @@ public abstract class BaseDao<T extends BaseEntity>{
         entityList.add(object);
     }
 
-    public  void Update(T object,int id){       //todo: this is lazy and stupid. please fix asap
+    public  void Update(T object,int id){
         entityList.set(id,object);
     }
 
     public void DeleteById(int id){
-        for(T entity : entityList)
-            if(entity.getId() == id)
-                entityList.remove(entity);
+        entityList.remove(id);
+        //for(T entity : entityList)
+        //    if(entity.getId() == id)
+        //      entityList.remove(entity);
+    }
+
+    public void DeleteEntity(T object){
+        entityList.remove(object);
     }
 
     public  void DeleteAll(){

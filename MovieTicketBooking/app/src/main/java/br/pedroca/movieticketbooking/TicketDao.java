@@ -1,7 +1,7 @@
 package br.pedroca.movieticketbooking;
 
 public class TicketDao extends BaseDao<Ticket> {
-    public TicketDao() {    //just to simulate an existing database
+    public TicketDao() {    //just to simulate an existing database. use it for debugging
         this.Insert(new Ticket(0,"Spider-man 2",15.00,4.5,"05/11/22","16:30","spiderman_banner"));
         this.Insert(new Ticket(0,"Fast and Furious 7",19.50,3.5,"16/09/22","11:00","fastandfurious_banner"));
         this.Insert(new Ticket(0,"Pump Fiction",20.00,5.0,"15/11/22","13:45","pumpfiction_banner"));

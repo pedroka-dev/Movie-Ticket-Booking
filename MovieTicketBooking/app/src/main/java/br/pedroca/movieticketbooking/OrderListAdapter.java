@@ -54,6 +54,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         public TextView orderPrice;
         public Button increaseQuantity;
         public Button decreaseQuantity;
+        public Button cu;
 
         public OrderViewHolder(View itemView) {
             super(itemView);
@@ -64,6 +65,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             orderPrice = itemView.findViewById(R.id.txtOrderTotalPrice);
             increaseQuantity = itemView.findViewById(R.id.buttonIncreaseQuantity);
             decreaseQuantity = itemView.findViewById(R.id.buttonDecreaseQuantity);
+            cu = itemView.findViewById(R.id.buttonCu);
         }
 
         public void showFields(Order order){
@@ -81,14 +83,18 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
             increaseQuantity.setOnClickListener(view -> {
                 OrderListActivity.orderDao.addOrderQuantity(order.getId());
-                notifyItemChanged(order.getId());
+                notifyItemChanged(this.getAdapterPosition());
             });
 
             decreaseQuantity.setOnClickListener(view -> {
                 OrderListActivity.orderDao.subtractOrderQuantity(order.getId());
-                notifyItemChanged(order.getId());
+                notifyItemChanged(this.getAdapterPosition());
             });
 
+            cu.setOnClickListener(view ->{
+                OrderListActivity.orderDao.DeleteEntity(order);
+                notifyItemRemoved(this.getAdapterPosition());
+            });
         }
     }
 }
