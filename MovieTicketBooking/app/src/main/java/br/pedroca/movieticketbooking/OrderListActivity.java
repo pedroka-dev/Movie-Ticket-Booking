@@ -18,7 +18,7 @@ public class OrderListActivity extends Activity {
         setContentView(R.layout.activity_order_list);
 
         RecyclerView orderRecycleView = findViewById(R.id.recycleViewOrders);
-        List<Order> orderList = orderDao.GetAll();
+        List<Order> orderList = orderDao.getAllEntity();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         //layoutManager.setOrientation(LinearLayoutManager.VERTICAL);

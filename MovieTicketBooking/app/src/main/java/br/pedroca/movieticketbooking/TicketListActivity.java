@@ -1,7 +1,6 @@
 package br.pedroca.movieticketbooking;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +23,7 @@ public class TicketListActivity extends Activity {
 
         RecyclerView ticketRecyclerView = findViewById(R.id.recyclerViewTickets);
         //ticketRecyclerView.setHasFixedSize(true);
-        List<Ticket> ticketList = ticketDao.GetAll();
+        List<Ticket> ticketList = ticketDao.getAllEntity();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         //layoutManager.setOrientation(LinearLayoutManager.VERTICAL);

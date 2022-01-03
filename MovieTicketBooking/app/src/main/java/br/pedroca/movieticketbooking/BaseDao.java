@@ -6,38 +6,34 @@ import java.util.List;
 public abstract class BaseDao<T extends BaseEntity>{
     protected List<T> entityList = new ArrayList<>();
 
-    public void Insert(T object){
+    public void insertEntity(T object){
         object.setId(entityList.size());
         entityList.add(object);
     }
 
-    public  void Update(T object,int id){
+    public  void updateEntity(T object, int id){
         entityList.set(id,object);
     }
 
-    public void DeleteById(int id){
-        entityList.remove(id);
+    public void deleteEntity(T object){
+        entityList.remove(object);
         //for(T entity : entityList)
         //    if(entity.getId() == id)
         //      entityList.remove(entity);
     }
 
-    public void DeleteEntity(T object){
-        entityList.remove(object);
-    }
-
-    public  void DeleteAll(){
+    public  void deleteAllEntity(){
         entityList.clear();
     }
 
-    public T GetById(int id){
+    public T getEntity(int id){
         for(T entity : entityList)
             if(entity.getId() == id)
                 return entity;
         return null;
     }
 
-    public List<T> GetAll(){
+    public List<T> getAllEntity(){
         return entityList;
     }
 }

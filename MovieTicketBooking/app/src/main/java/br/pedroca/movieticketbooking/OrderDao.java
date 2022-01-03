@@ -9,18 +9,18 @@ public class OrderDao extends BaseDao<Order> {
     //}
 
     public void createNewOrder(Ticket ticket){
-        int IdOfOrderWithTicket = this.getIdfromTicket(ticket.getId());
+        int IdOfOrderWithTicket = this.getIdFromTicket(ticket.getId());
         if(IdOfOrderWithTicket != -1)   //-1 is when the id is not found. kinda bad code but it works for now
         {
             this.addOrderQuantity(IdOfOrderWithTicket);
         }
         else{
             Order order = new Order(0,ticket,1,Order.generateRandomCode());
-            this.Insert(order);
+            this.insertEntity(order);
         }
     }
 
-    public int getIdfromTicket(int idTicket){
+    public int getIdFromTicket(int idTicket){
         for(Order order:entityList){
             if(order.getTicket().getId() == idTicket)
                 return order.getId();
@@ -29,16 +29,16 @@ public class OrderDao extends BaseDao<Order> {
     }
 
     public void addOrderQuantity(int idOrder){
-        Order order = this.GetById(idOrder);
+        Order order = this.getEntity(idOrder);
         order.setQuantity(order.getQuantity()+1);
-        this.Update(order,idOrder);
+        this.updateEntity(order,idOrder);
     }
 
     public void subtractOrderQuantity(int idOrder){
-        Order order = this.GetById(idOrder);
+        Order order = this.getEntity(idOrder);
         if(order.getQuantity() > 1) {
             order.setQuantity(order.getQuantity() - 1);
-            this.Update(order, idOrder);
+            this.updateEntity(order, idOrder);
         }
     }
 }

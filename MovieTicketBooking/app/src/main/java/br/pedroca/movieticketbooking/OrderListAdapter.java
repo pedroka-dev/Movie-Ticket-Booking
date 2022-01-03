@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -92,7 +91,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             });
 
             cu.setOnClickListener(view ->{
-                OrderListActivity.orderDao.DeleteEntity(order);
+                OrderListActivity.orderDao.deleteEntity(order);
                 notifyItemRemoved(this.getAdapterPosition());
             });
         }
