@@ -1,4 +1,4 @@
-package br.pedroca.movieticketbooking;
+package br.pedroca.movieticketbooking.model;
 
 public abstract class BaseEntity {
     protected int id;

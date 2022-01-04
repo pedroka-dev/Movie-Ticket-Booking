@@ -1,7 +1,9 @@
-package br.pedroca.movieticketbooking;
+package br.pedroca.movieticketbooking.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import br.pedroca.movieticketbooking.model.BaseEntity;
 
 public abstract class BaseDao<T extends BaseEntity>{
     protected List<T> entityList = new ArrayList<>();

@@ -1,4 +1,6 @@
-package br.pedroca.movieticketbooking;
+package br.pedroca.movieticketbooking.dao;
+
+import br.pedroca.movieticketbooking.model.Ticket;
 
 public class TicketDao extends BaseDao<Ticket> {
     public TicketDao() {    //just to simulate an existing database. use it for debugging

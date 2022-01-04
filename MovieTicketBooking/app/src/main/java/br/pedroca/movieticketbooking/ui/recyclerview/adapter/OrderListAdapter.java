@@ -1,4 +1,4 @@
-package br.pedroca.movieticketbooking;
+package br.pedroca.movieticketbooking.ui.recyclerview.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,11 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Locale;
+
+import br.pedroca.movieticketbooking.R;
+import br.pedroca.movieticketbooking.dao.OrderDao;
+import br.pedroca.movieticketbooking.model.Order;
+import br.pedroca.movieticketbooking.model.Ticket;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.OrderViewHolder> {
     public static OrderDao orderRepository = new OrderDao();
@@ -95,13 +100,9 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
             code.setText(order.getCode());
 
-            increaseQuantity.setOnClickListener(view -> {
-                addOrderQuantityToItem(order);
-            });
+            increaseQuantity.setOnClickListener(view -> addOrderQuantityToItem(order));
 
-            decreaseQuantity.setOnClickListener(view -> {
-                subtractOrderQuantityToItem(order);
-            });
+            decreaseQuantity.setOnClickListener(view -> subtractOrderQuantityToItem(order));
         }
     }
 }

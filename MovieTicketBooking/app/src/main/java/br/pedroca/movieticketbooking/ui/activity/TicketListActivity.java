@@ -1,4 +1,4 @@
-package br.pedroca.movieticketbooking;
+package br.pedroca.movieticketbooking.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,9 @@ import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import br.pedroca.movieticketbooking.R;
+import br.pedroca.movieticketbooking.ui.recyclerview.adapter.TicketListAdapter;
 
 public class TicketListActivity extends Activity {
 

@@ -1,7 +1,9 @@
-package br.pedroca.movieticketbooking;
+package br.pedroca.movieticketbooking.ui.recyclerview.helper;
 
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
+
+import br.pedroca.movieticketbooking.ui.recyclerview.adapter.OrderListAdapter;
 
 public class OrderItemTouchHelperCallback extends ItemTouchHelper.Callback{
     OrderListAdapter orderAdapter;

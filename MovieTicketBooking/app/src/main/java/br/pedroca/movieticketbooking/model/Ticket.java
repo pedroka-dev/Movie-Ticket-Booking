@@ -1,4 +1,4 @@
-package br.pedroca.movieticketbooking;
+package br.pedroca.movieticketbooking.model;
 
 public class Ticket extends BaseEntity {
     private String title;

@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieTicketBooking">
         <activity
-            android:name=".OrderListActivity"
+            android:name=".ui.activity.OrderListActivity"
             android:exported="false"
             android:theme="@style/Theme.MovieTicketBooking.NoActionBar"
             />
         <activity
-            android:name=".TicketListActivity"
+            android:name=".ui.activity.TicketListActivity"
             android:exported="true"
             android:label="@string/title_activity_ticket_list"
             android:theme="@style/Theme.MovieTicketBooking.NoActionBar">

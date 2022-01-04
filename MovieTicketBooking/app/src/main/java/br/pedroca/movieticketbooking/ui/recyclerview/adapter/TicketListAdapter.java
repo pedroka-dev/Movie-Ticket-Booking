@@ -1,4 +1,4 @@
-package br.pedroca.movieticketbooking;
+package br.pedroca.movieticketbooking.ui.recyclerview.adapter;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -14,6 +14,10 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Locale;
+
+import br.pedroca.movieticketbooking.R;
+import br.pedroca.movieticketbooking.dao.TicketDao;
+import br.pedroca.movieticketbooking.model.Ticket;
 
 public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.TicketViewHolder>  {
     public static TicketDao ticketRepository = new TicketDao();
