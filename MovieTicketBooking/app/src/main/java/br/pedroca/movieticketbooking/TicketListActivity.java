@@ -8,12 +8,8 @@ import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
-
-
 public class TicketListActivity extends Activity {
 
-    public static TicketDao ticketDao = new TicketDao();    //TODO: add TicketDAO instance by dependency injection
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +19,12 @@ public class TicketListActivity extends Activity {
 
         RecyclerView ticketRecyclerView = findViewById(R.id.recyclerViewTickets);
         //ticketRecyclerView.setHasFixedSize(true);
-        List<Ticket> ticketList = ticketDao.getAllEntity();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         //layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         ticketRecyclerView.setLayoutManager(layoutManager);
 
-        ticketRecyclerView.setAdapter(new TicketListAdapter(this,ticketList));
+        ticketRecyclerView.setAdapter(new TicketListAdapter(this));
     }
 
     public void showCartButtonClicked(View view){

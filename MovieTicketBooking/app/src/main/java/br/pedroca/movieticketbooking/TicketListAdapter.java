@@ -17,12 +17,11 @@ import java.util.List;
 import java.util.Locale;
 
 public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.TicketViewHolder>  {
-    private final List<Ticket> ticketList;
+    public static TicketDao ticketRepository = new TicketDao();
     private final Context context;
 
-    public TicketListAdapter(Context context, List<Ticket> ticketList){
+    public TicketListAdapter(Context context){
         this.context = context;
-        this.ticketList = ticketList;
     }
 
     @Override
@@ -35,13 +34,13 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Ti
 
     @Override
     public void onBindViewHolder(TicketListAdapter.TicketViewHolder holder, int id) {
-        Ticket ticket = ticketList.get(id);
+        Ticket ticket = ticketRepository.getEntity(id);
         holder.showFields(ticket);
     }
 
     @Override
     public int getItemCount() {
-        return ticketList.size();
+        return ticketRepository.getCount();
     }
 
     @Override
