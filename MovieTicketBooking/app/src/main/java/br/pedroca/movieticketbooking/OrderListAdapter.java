@@ -6,19 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
 import java.util.Locale;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.OrderViewHolder> {
-    private final List<Order> orderList;
+    public static OrderDao orderRepository = new OrderDao();
     private final Context context;
 
-    public OrderListAdapter(Context context,List<Order> orderList){
+    public OrderListAdapter(Context context){
         this.context = context;
-        this.orderList = orderList;
     }
 
     @Override
@@ -31,13 +30,13 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
     @Override
     public void onBindViewHolder(OrderListAdapter.OrderViewHolder holder, int id) {
-        Order order = orderList.get(id);
+        Order order = orderRepository.getAllEntity().get(id);
         holder.showFields(order);
     }
 
     @Override
     public int getItemCount() {
-        return orderList.size();
+        return orderRepository.getCount();
     }
 
     @Override
@@ -65,6 +64,24 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             decreaseQuantity = itemView.findViewById(R.id.buttonDecreaseQuantity);
         }
 
+
+        public void removeOrder(int holderPosition){
+            Order order = orderRepository.getAllEntity().get(holderPosition);
+            orderRepository.deleteEntity(order);
+            notifyItemRemoved(holderPosition);
+            Toast.makeText(this.itemView.getContext(), "Removed order from cart", Toast.LENGTH_SHORT).show();
+        }
+
+        public void addOrderQuantityToItem(Order order){
+            orderRepository.addOrderQuantity(order);
+            notifyItemChanged(this.getAdapterPosition());
+        }
+
+        public void subtractOrderQuantityToItem(Order order){
+            orderRepository.subtractOrderQuantity(order);
+            notifyItemChanged(this.getAdapterPosition());
+        }
+
         public void showFields(Order order){
             Ticket ticket = order.getTicket();
             title.setText(ticket.getTitle());
@@ -79,13 +96,11 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             code.setText(order.getCode());
 
             increaseQuantity.setOnClickListener(view -> {
-                OrderListActivity.orderDao.addOrderQuantity(order.getId());
-                notifyItemChanged(this.getAdapterPosition());
+                addOrderQuantityToItem(order);
             });
 
             decreaseQuantity.setOnClickListener(view -> {
-                OrderListActivity.orderDao.subtractOrderQuantity(order.getId());
-                notifyItemChanged(this.getAdapterPosition());
+                subtractOrderQuantityToItem(order);
             });
         }
     }

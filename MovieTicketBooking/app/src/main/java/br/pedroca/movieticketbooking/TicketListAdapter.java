@@ -88,7 +88,7 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Ti
             bannerImage.setImageDrawable(drawableBannerImage);
 
             addCard.setOnClickListener(view -> {
-                OrderListActivity.orderDao.createNewOrder(ticket);
+                OrderListAdapter.orderRepository.createNewOrder(ticket);
                 Toast.makeText(view.getContext(), "Ticket: '" +ticket.getTitle()+"' added to shopping cart successfully.", Toast.LENGTH_SHORT).show();
             });
         }

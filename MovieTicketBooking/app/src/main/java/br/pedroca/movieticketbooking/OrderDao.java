@@ -9,10 +9,10 @@ public class OrderDao extends BaseDao<Order> {
     //}
 
     public void createNewOrder(Ticket ticket){
-        int IdOfOrderWithTicket = this.getIdFromTicket(ticket.getId());
-        if(IdOfOrderWithTicket != -1)   //-1 is when the id is not found. kinda bad code but it works for now
+        Order orderFromTicket = this.getOrderFromTicket(ticket.getId());
+        if(orderFromTicket != null)
         {
-            this.addOrderQuantity(IdOfOrderWithTicket);
+            this.addOrderQuantity(orderFromTicket);
         }
         else{
             Order order = new Order(0,ticket,1,Order.generateRandomCode());
@@ -20,25 +20,22 @@ public class OrderDao extends BaseDao<Order> {
         }
     }
 
-    public int getIdFromTicket(int idTicket){
+    public Order getOrderFromTicket(int idTicket){
         for(Order order:entityList){
             if(order.getTicket().getId() == idTicket)
-                return order.getId();
+                return order;
         }
-        return -1;
+        return null;
     }
 
-    public void addOrderQuantity(int idOrder){
-        Order order = this.getEntity(idOrder);
+    public void addOrderQuantity(Order order){
         order.setQuantity(order.getQuantity()+1);
-        this.updateEntity(order,idOrder);
+        this.updateEntity(order,getEntityId(order));
     }
-
-    public void subtractOrderQuantity(int idOrder){
-        Order order = this.getEntity(idOrder);
+    public void subtractOrderQuantity(Order order){
         if(order.getQuantity() > 1) {
             order.setQuantity(order.getQuantity() - 1);
-            this.updateEntity(order, idOrder);
+            this.updateEntity(order, getEntityId(order));
         }
     }
 }

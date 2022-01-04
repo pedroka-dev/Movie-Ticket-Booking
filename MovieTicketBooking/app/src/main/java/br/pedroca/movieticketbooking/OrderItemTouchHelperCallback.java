@@ -26,9 +26,7 @@ public class OrderItemTouchHelperCallback extends ItemTouchHelper.Callback{
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
         int swipedAdapterPosition = viewHolder.getAdapterPosition();
-        Order order = OrderListActivity.orderDao.getAllEntity().get(swipedAdapterPosition);
-        OrderListActivity.orderDao.deleteEntity(order);
-        orderAdapter.notifyItemRemoved(swipedAdapterPosition);
-        Toast.makeText(viewHolder.itemView.getContext(), "Removed order from cart", Toast.LENGTH_SHORT).show();
+        OrderListAdapter.OrderViewHolder orderViewHolder = (OrderListAdapter.OrderViewHolder)viewHolder;
+        orderViewHolder.removeOrder(swipedAdapterPosition);
     }
 }

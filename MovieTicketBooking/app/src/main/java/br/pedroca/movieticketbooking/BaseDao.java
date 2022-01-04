@@ -26,7 +26,7 @@ public abstract class BaseDao<T extends BaseEntity>{
         entityList.clear();
     }
 
-    public T getEntity(int id){
+    public T getEntity(int id){     //this get is using entity id. might break recycleview
         for(T entity : entityList)
             if(entity.getId() == id)
                 return entity;
@@ -35,5 +35,11 @@ public abstract class BaseDao<T extends BaseEntity>{
 
     public List<T> getAllEntity(){
         return entityList;
+    }
+
+    public int getCount(){return entityList.size();}
+
+    public int getEntityId(T object){
+        return entityList.indexOf(object);
     }
 }

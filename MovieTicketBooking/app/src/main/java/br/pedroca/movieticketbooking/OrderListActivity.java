@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class OrderListActivity extends Activity {
-    public static OrderDao orderDao = new OrderDao();   //TODO: add OrderDAO instances by dependency injection
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,13 +17,12 @@ public class OrderListActivity extends Activity {
         setContentView(R.layout.activity_order_list);
 
         RecyclerView orderRecycleView = findViewById(R.id.recycleViewOrders);
-        List<Order> orderList = orderDao.getAllEntity();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         //layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         orderRecycleView.setLayoutManager(layoutManager);
 
-        OrderListAdapter orderAdapter = new OrderListAdapter(this, orderList);
+        OrderListAdapter orderAdapter = new OrderListAdapter(this);
         orderRecycleView.setAdapter(orderAdapter);
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new OrderItemTouchHelperCallback(orderAdapter));
         itemTouchHelper.attachToRecyclerView(orderRecycleView);
