@@ -11,7 +11,7 @@
         android:id="@+id/txtDialogQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Added_to_cart"
+        android:text="This is a test dialog. when the imposter is sus vent amogus."
         android:textColor="@color/black"
         android:textSize="16sp" />
 </LinearLayout>

@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
 import java.util.Locale;
 
 public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.TicketViewHolder>  {

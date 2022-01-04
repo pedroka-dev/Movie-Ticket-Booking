@@ -68,14 +68,15 @@
             tools:text="@sample/ticketExamples.json/price"/>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonBuy"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginStart="100dp"
             android:layout_marginEnd="20dp"
             android:layout_weight="1"
-            android:text="@string/buy" />
+            android:text="@string/buy"
+            android:onClick="buyButtonClicked"/>
 
     </LinearLayout>
 

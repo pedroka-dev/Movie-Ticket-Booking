@@ -1,7 +1,5 @@
 package br.pedroca.movieticketbooking;
 
-import android.widget.Toast;
-
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 

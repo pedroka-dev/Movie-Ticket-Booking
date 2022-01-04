@@ -9,7 +9,6 @@
     <string name="dialog_title">Cinema Ticket Shop</string>
     <string name="shopping_cart">Shopping Cart</string>
     <string name="cart">Cart</string>
-    <string name="Added_to_cart">The movie ticket has been added to the cart successfully.</string>
     <string name="price_p_ticket">Price p/ Ticket:</string>
     <string name="movie_title">Movie Title:</string>
     <string name="critics_rating">Critics Rating:</string>
