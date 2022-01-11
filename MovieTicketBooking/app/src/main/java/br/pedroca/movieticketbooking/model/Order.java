@@ -4,14 +4,14 @@ public class Order extends BaseEntity {
     private Ticket ticket;
     private int quantity;
     private String code;
-    private double totalPrice;
+    private double orderPrice;
 
     public Order(int id,Ticket ticket, int quantity, String code) {
         this.id = id;
         this.ticket = ticket;
         this.quantity = quantity;
         this.code = code;
-        this.totalPrice = calculateTotalPrice();
+        this.orderPrice = calculateOrderPrice();
     }
     public static String generateRandomCode(){
         String orderCode = "#CodeCode";
@@ -32,7 +32,7 @@ public class Order extends BaseEntity {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-        //this.totalPrice = calculateTotalPrice();
+        this.orderPrice = calculateOrderPrice();
     }
 
     public String getCode() {
@@ -43,11 +43,11 @@ public class Order extends BaseEntity {
         this.code = code;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
+    public double getOrderPrice() {
+        return orderPrice;
     }
 
-    public double calculateTotalPrice() {
+    public double calculateOrderPrice() {
         return quantity * ticket.getPrice();
     }
 
@@ -58,7 +58,7 @@ public class Order extends BaseEntity {
                 ", ticket=" + ticket +
                 ", quantity=" + quantity +
                 ", code='" + code + '\'' +
-                ", totalPrice=" + totalPrice +
+                ", totalPrice=" + orderPrice +
                 '}';
     }
 }

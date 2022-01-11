@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,7 +23,8 @@ public class OrderListActivity extends Activity {
         RecyclerView orderRecycleView = findViewById(R.id.recycleViewOrders);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         orderRecycleView.setLayoutManager(layoutManager);
-        OrderListAdapter orderAdapter = new OrderListAdapter(this);
+        TextView fullPriceView = findViewById(R.id.txtTotalPrice);      //needs to send this reference to calculate total cart price. works for now
+        OrderListAdapter orderAdapter = new OrderListAdapter(this, fullPriceView);
         orderRecycleView.setAdapter(orderAdapter);
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new OrderItemTouchHelperCallback(orderAdapter));

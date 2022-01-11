@@ -35,10 +35,19 @@ public class OrderDao extends BaseDao<Order> {
         order.setQuantity(order.getQuantity()+1);
         this.updateEntity(order,getEntityId(order));
     }
+
     public void subtractOrderQuantity(Order order){
         if(order.getQuantity() > 1) {
             order.setQuantity(order.getQuantity() - 1);
             this.updateEntity(order, getEntityId(order));
         }
+    }
+
+    public double calculateCartTotalPrice(){
+        double totalPrice = 0;
+        for(Order order : entityList){
+            totalPrice += order.getOrderPrice();
+        }
+        return totalPrice;
     }
 }

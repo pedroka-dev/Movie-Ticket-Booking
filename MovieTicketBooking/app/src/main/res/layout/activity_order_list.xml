@@ -56,16 +56,17 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
+            android:id="@+id/txtTotalPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="50dp"
+            android:text="totalCartPrice"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:text="totalCartPrice"
-            tools:text="@sample/ticketExamples.json/price"/>
+            tools:text="@sample/ticketExamples.json/price" />
 
         <Button
             android:id="@+id/buttonBuy"

@@ -20,9 +20,11 @@ import br.pedroca.movieticketbooking.model.Ticket;
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.OrderViewHolder> {
     public static OrderDao orderRepository = new OrderDao();
     private final Context context;
+    private final TextView fullPriceView;
 
-    public OrderListAdapter(Context context){
+    public OrderListAdapter(Context context, TextView fullPriceView){
         this.context = context;
+        this.fullPriceView = fullPriceView;     //TODO: implement total price update by other means. sending the textview here is a bad practice
     }
 
     @Override
@@ -49,31 +51,38 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         super.onAttachedToRecyclerView(recyclerView);
     }
 
+    public void updateCartTotalPrice(){
+        String fullPriceText = "$" + String.format(Locale.getDefault(),"%.2f", orderRepository.calculateCartTotalPrice());
+        fullPriceView.setText(fullPriceText);
+    }
+
     public class OrderViewHolder extends RecyclerView.ViewHolder {
-        public TextView title;
-        public TextView price;
-        public TextView code;
-        public TextView quantity;
-        public TextView orderPrice;
-        public Button increaseQuantity;
-        public Button decreaseQuantity;
+        public TextView titleView;
+        public TextView priceView;
+        public TextView codeView;
+        public TextView quantityView;
+        public TextView orderPriceView;
+        public Button increaseQuantityButton;
+        public Button decreaseQuantityButton;
 
         public OrderViewHolder(View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.txtOrderMovieTitle);
-            price = itemView.findViewById(R.id.txtOrderMoviePrice);
-            code = itemView.findViewById(R.id.textViewOrderCode);
-            quantity = itemView.findViewById(R.id.txtOrderQuantity);
-            orderPrice = itemView.findViewById(R.id.txtOrderTotalPrice);
-            increaseQuantity = itemView.findViewById(R.id.buttonIncreaseQuantity);
-            decreaseQuantity = itemView.findViewById(R.id.buttonDecreaseQuantity);
+            titleView = itemView.findViewById(R.id.txtOrderMovieTitle);
+            priceView = itemView.findViewById(R.id.txtOrderMoviePrice);
+            codeView = itemView.findViewById(R.id.textViewOrderCode);
+            quantityView = itemView.findViewById(R.id.txtOrderQuantity);
+            orderPriceView = itemView.findViewById(R.id.txtOrderFullPrice);
+            increaseQuantityButton = itemView.findViewById(R.id.buttonIncreaseQuantity);
+            decreaseQuantityButton = itemView.findViewById(R.id.buttonDecreaseQuantity);
+            decreaseQuantityButton = itemView.findViewById(R.id.buttonDecreaseQuantity);
+            //updateCartTotalPrice();
         }
-
 
         public void removeOrder(int holderPosition){
             Order order = orderRepository.getAllEntity().get(holderPosition);
             orderRepository.deleteEntity(order);
             notifyItemRemoved(holderPosition);
+            updateCartTotalPrice();
             Toast.makeText(this.itemView.getContext(), "Removed order from cart", Toast.LENGTH_SHORT).show();
         }
 
@@ -89,20 +98,22 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
         public void showFields(Order order){
             Ticket ticket = order.getTicket();
-            title.setText(ticket.getTitle());
+            titleView.setText(ticket.getTitle());
             String priceText = "$" + String.format(Locale.getDefault(),"%.2f", ticket.getPrice());  //todo: responsibility should be on Util layer
-            price.setText(priceText);
+            priceView.setText(priceText);
 
-            String orderPriceText = "$" + String.format(Locale.getDefault(),"%.2f", order.getTotalPrice());  //todo: responsibility should be on Util layer
-            orderPrice.setText(orderPriceText);
+            String orderPriceText = "$" + String.format(Locale.getDefault(),"%.2f", order.getOrderPrice());  //todo: responsibility should be on Util layer
+            orderPriceView.setText(orderPriceText);
 
-            quantity.setText(Integer.toString(order.getQuantity()));
+            quantityView.setText(Integer.toString(order.getQuantity()));
 
-            code.setText(order.getCode());
+            codeView.setText(order.getCode());
 
-            increaseQuantity.setOnClickListener(view -> addOrderQuantityToItem(order));
+            increaseQuantityButton.setOnClickListener(view -> addOrderQuantityToItem(order));
 
-            decreaseQuantity.setOnClickListener(view -> subtractOrderQuantityToItem(order));
+            decreaseQuantityButton.setOnClickListener(view -> subtractOrderQuantityToItem(order));
+
+            updateCartTotalPrice();
         }
     }
 }
