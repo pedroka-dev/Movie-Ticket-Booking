@@ -62,7 +62,7 @@
             android:layout_gravity="center"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="50dp"
-            android:text="totalCartPrice"
+            android:text="$0.00"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"

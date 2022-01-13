@@ -1,5 +1,7 @@
 package br.pedroca.movieticketbooking.model;
 
+import java.util.Random;
+
 public class Order extends BaseEntity {
     private Ticket ticket;
     private int quantity;
@@ -14,8 +16,15 @@ public class Order extends BaseEntity {
         this.orderPrice = calculateOrderPrice();
     }
     public static String generateRandomCode(){
-        String orderCode = "#CodeCode";
-        return orderCode;
+        int length = 6;
+        String possibleCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        char[] text = new char[length];
+
+        for (int i = 0; i < length; i++)
+        {
+            text[i] = possibleCharacters.charAt(new Random().nextInt(possibleCharacters.length()));
+        }
+        return "#" + new String(text);
     }
 
     public Ticket getTicket() {
