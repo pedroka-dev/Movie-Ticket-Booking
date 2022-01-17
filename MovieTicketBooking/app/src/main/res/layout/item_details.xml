@@ -9,11 +9,11 @@
         android:id="@+id/CardViewDetails"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         app:cardBackgroundColor="#EFEFEF"
-        app:cardCornerRadius="15dp"
+        app:cardCornerRadius="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,8 +26,8 @@
                 android:id="@+id/txtDetailsConstPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:text="@string/price_p_ticket"
                 android:textColor="@color/purple_500"
                 android:textSize="20sp"
@@ -39,8 +39,8 @@
                 android:id="@+id/txtDetailsConstTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/movie_title"
                 android:textColor="@color/purple_500"
                 android:textSize="20sp"
@@ -51,7 +51,7 @@
                 android:id="@+id/txtDetailsConstRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/critics_rating"
                 android:textColor="@color/purple_500"
                 android:textSize="20sp"
@@ -62,7 +62,7 @@
                 android:id="@+id/txtDetailsConstDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/session_date"
                 android:textColor="@color/purple_500"
                 android:textSize="20sp"
@@ -73,7 +73,7 @@
                 android:id="@+id/txtDetailsConstTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/session_time"
                 android:textColor="@color/purple_500"
                 android:textSize="20sp"
@@ -84,7 +84,7 @@
                 android:id="@+id/txtDetailsPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:textColor="#236826"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -102,7 +102,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/txtDetailsConstTitle"
                 app:layout_constraintTop_toTopOf="@+id/txtDetailsConstTitle"
-                tools:text="@sample/ticketExamples.json/title"/>
+                tools:text="@sample/ticketExamples.json/title" />
 
             <TextView
                 android:id="@+id/txtDetailsRating"
@@ -112,7 +112,7 @@
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@+id/txtDetailsTitle"
                 app:layout_constraintTop_toTopOf="@+id/txtDetailsConstRating"
-                tools:text="@sample/ticketExamples.json/rating"/>
+                tools:text="@sample/ticketExamples.json/rating" />
 
             <TextView
                 android:id="@+id/txtDetailsDate"
@@ -122,7 +122,7 @@
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@+id/txtDetailsRating"
                 app:layout_constraintTop_toTopOf="@+id/txtDetailsConstDate"
-                tools:text="@sample/ticketExamples.json/date"/>
+                tools:text="@sample/ticketExamples.json/date" />
 
             <TextView
                 android:id="@+id/txtDetailsTime"
@@ -132,7 +132,7 @@
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@+id/txtDetailsDate"
                 app:layout_constraintTop_toTopOf="@+id/txtDetailsConstTime"
-                tools:text="@sample/ticketExamples.json/time"/>
+                tools:text="@sample/ticketExamples.json/time" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

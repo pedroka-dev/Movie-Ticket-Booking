@@ -1,5 +1,6 @@
 package br.pedroca.movieticketbooking.ui.recyclerview.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -96,6 +97,19 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             notifyItemChanged(this.getAdapterPosition());
         }
 
+        public void showTicketDetails(Order order){
+            AlertDialog.Builder builder = new AlertDialog.Builder(itemView.getContext());
+            builder.setTitle("Ticket Details");
+            LayoutInflater inflater = (LayoutInflater) itemView.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            final View customLayout = inflater.inflate(R.layout.item_details, null);
+            builder.setView(customLayout);
+            builder.setPositiveButton("OK", (dialog, which) -> {
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+        }
+
         public void showFields(Order order){
             Ticket ticket = order.getTicket();
             titleView.setText(ticket.getTitle());
@@ -110,8 +124,8 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             codeView.setText(order.getCode());
 
             increaseQuantityButton.setOnClickListener(view -> addOrderQuantityToItem(order));
-
             decreaseQuantityButton.setOnClickListener(view -> subtractOrderQuantityToItem(order));
+            itemView.setOnClickListener(view -> showTicketDetails(order));
 
             updateCartTotalPrice();
         }

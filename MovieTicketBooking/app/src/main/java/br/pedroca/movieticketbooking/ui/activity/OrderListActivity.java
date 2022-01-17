@@ -23,6 +23,7 @@ public class OrderListActivity extends Activity {
         RecyclerView orderRecycleView = findViewById(R.id.recycleViewOrders);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         orderRecycleView.setLayoutManager(layoutManager);
+
         TextView fullPriceView = findViewById(R.id.txtTotalPrice);      //needs to send this reference to calculate total cart price. works for now
         OrderListAdapter orderAdapter = new OrderListAdapter(this, fullPriceView);
         orderRecycleView.setAdapter(orderAdapter);
