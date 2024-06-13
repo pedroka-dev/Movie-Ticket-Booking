@@ -6,7 +6,7 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-    <string name="dialog_title">Cinema Ticket Shop</string>
+    <string name="dialog_title">Tickets Booked</string>
     <string name="shopping_cart">Shopping Cart</string>
     <string name="cart">Cart</string>
     <string name="price_p_ticket">Price p/ Ticket:</string>

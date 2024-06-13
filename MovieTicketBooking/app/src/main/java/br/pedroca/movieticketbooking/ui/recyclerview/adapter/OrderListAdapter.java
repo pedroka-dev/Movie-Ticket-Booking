@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
 import java.util.Locale;
 
 import br.pedroca.movieticketbooking.R;
@@ -57,6 +58,12 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         fullPriceView.setText(fullPriceText);
     }
 
+    public void removeAllOrders(){
+        orderRepository.deleteAllEntity();
+        notifyDataSetChanged();  //todo change to more performatic method
+        updateCartTotalPrice();
+    }
+
     public class OrderViewHolder extends RecyclerView.ViewHolder {
         public TextView titleView;
         public TextView priceView;
@@ -86,6 +93,8 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             updateCartTotalPrice();
             Toast.makeText(this.itemView.getContext(), "Removed order from cart", Toast.LENGTH_SHORT).show();
         }
+        
+
 
         public void addOrderQuantityToItem(Order order){
             orderRepository.addOrderQuantity(order);

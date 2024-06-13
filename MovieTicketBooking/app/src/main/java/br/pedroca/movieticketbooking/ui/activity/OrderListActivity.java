@@ -15,6 +15,9 @@ import br.pedroca.movieticketbooking.ui.recyclerview.adapter.OrderListAdapter;
 import br.pedroca.movieticketbooking.R;
 
 public class OrderListActivity extends Activity {
+
+    private OrderListAdapter orderAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +28,7 @@ public class OrderListActivity extends Activity {
         orderRecycleView.setLayoutManager(layoutManager);
 
         TextView fullPriceView = findViewById(R.id.txtTotalPrice);      //needs to send this reference to calculate total cart price. works for now
-        OrderListAdapter orderAdapter = new OrderListAdapter(this, fullPriceView);
+        orderAdapter = new OrderListAdapter(this, fullPriceView);
         orderRecycleView.setAdapter(orderAdapter);
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new OrderItemTouchHelperCallback(orderAdapter));
@@ -36,6 +39,7 @@ public class OrderListActivity extends Activity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.dialog_title));
         final View customLayout = getLayoutInflater().inflate(R.layout.dialog_alert, null);
+        orderAdapter.removeAllOrders();
         builder.setView(customLayout);
         builder.setPositiveButton("OK", (dialog, which) -> {
             //EditText editText= customLayout.findViewById(R.id.editText);

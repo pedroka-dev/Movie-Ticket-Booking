@@ -53,6 +53,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
@@ -70,14 +71,14 @@
 
         <Button
             android:id="@+id/buttonBuy"
-            android:layout_width="0dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginStart="100dp"
             android:layout_marginEnd="20dp"
             android:layout_weight="1"
-            android:text="@string/buy"
-            android:onClick="buyButtonClicked"/>
+            android:onClick="buyButtonClicked"
+            android:text="@string/buy" />
 
     </LinearLayout>
 
