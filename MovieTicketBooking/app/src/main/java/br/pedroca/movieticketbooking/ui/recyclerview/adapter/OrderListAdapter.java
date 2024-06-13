@@ -80,9 +80,8 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             codeView = itemView.findViewById(R.id.textViewOrderCode);
             quantityView = itemView.findViewById(R.id.txtOrderQuantity);
             orderPriceView = itemView.findViewById(R.id.txtOrderFullPrice);
-            increaseQuantityButton = itemView.findViewById(R.id.buttonDecrease);
-            decreaseQuantityButton = itemView.findViewById(R.id.buttonIncrease);
-            decreaseQuantityButton = itemView.findViewById(R.id.buttonIncrease);
+            increaseQuantityButton = itemView.findViewById(R.id.buttonIncrease);
+            decreaseQuantityButton = itemView.findViewById(R.id.buttonDecrease );
             //updateCartTotalPrice();
         }
 
