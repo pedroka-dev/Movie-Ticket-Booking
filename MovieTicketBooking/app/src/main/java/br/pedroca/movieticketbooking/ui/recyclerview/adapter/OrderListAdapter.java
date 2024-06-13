@@ -73,9 +73,9 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             codeView = itemView.findViewById(R.id.textViewOrderCode);
             quantityView = itemView.findViewById(R.id.txtOrderQuantity);
             orderPriceView = itemView.findViewById(R.id.txtOrderFullPrice);
-            increaseQuantityButton = itemView.findViewById(R.id.buttonIncreaseQuantity);
-            decreaseQuantityButton = itemView.findViewById(R.id.buttonDecreaseQuantity);
-            decreaseQuantityButton = itemView.findViewById(R.id.buttonDecreaseQuantity);
+            increaseQuantityButton = itemView.findViewById(R.id.buttonDecrease);
+            decreaseQuantityButton = itemView.findViewById(R.id.buttonIncrease);
+            decreaseQuantityButton = itemView.findViewById(R.id.buttonIncrease);
             //updateCartTotalPrice();
         }
 
@@ -97,6 +97,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             notifyItemChanged(this.getAdapterPosition());
         }
 
+        //todo: add again details on order click
         public void showTicketDetails(Order order){
             AlertDialog.Builder builder = new AlertDialog.Builder(itemView.getContext());
             builder.setTitle("Ticket Details");
@@ -125,7 +126,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
             increaseQuantityButton.setOnClickListener(view -> addOrderQuantityToItem(order));
             decreaseQuantityButton.setOnClickListener(view -> subtractOrderQuantityToItem(order));
-            itemView.setOnClickListener(view -> showTicketDetails(order));
+            //itemView.setOnClickListener(view -> showTicketDetails(order)); /todo: add again details on order click
 
             updateCartTotalPrice();
         }
